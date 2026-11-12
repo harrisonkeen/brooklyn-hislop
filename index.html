@@ -1,0 +1,1001 @@
+<!doctype html>
+<html lang="en" data-lights="on" data-laurels="two" data-gap-a="strip" data-gap-b="medal" data-seeds="page" data-photos="scatter">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Brooklyn Hislop — Actress</title>
+<meta name="description" content="Brooklyn Hislop, actress. Demo reel, photos and credits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@1,600&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  @property --spot { syntax: "<length>"; inherits: false; initial-value: 0px; }
+
+  :root {
+    --ivory: #f8f3ef;      /* page */
+    --blush: #f1e4de;      /* photos section */
+    --veil: #e9ddd6;       /* row rules */
+    --ink: #2f2224;        /* text */
+    --name: #3b2219;       /* hero name: her chestnut hair */
+    --link: #8e4f45;       /* links, buttons on light */
+    --rose: #b98580;       /* curved lines and swashes on light */
+    --gold: #a4804c;       /* laurels */
+    --backdrop: #ebe9e3;   /* hero, sampled from the headshot's edges */
+    --plum: #2b1b1e;       /* reel band, footer */
+    --champagne: #e4c9b1;  /* lines and headings on plum */
+    --mist: #f3ece8;       /* text on plum */
+    --gutter: clamp(16px, 5vw, 72px);
+    --text: "Lora", Georgia, serif;
+    --display: "Cormorant Garamond", Garamond, serif;
+    --name-font: "Pinyon Script";
+    --name-scale: 1.05;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; background: #eeeeed; }
+  html.at-end { background: var(--plum); }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font: 400 1.0625rem/1.7 var(--text);
+    -webkit-font-smoothing: antialiased;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 0.25em; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 1px solid var(--link); outline-offset: 4px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 600; font-style: italic; margin: 0; line-height: 1.05; }
+  h2 { font-size: clamp(2.4rem, 4.6vw, 3.6rem); }
+
+  .section { position: relative; padding: clamp(72px, 10vw, 128px) var(--gutter); max-width: 1240px; margin: 0 auto; }
+  .flow { position: absolute; pointer-events: none; color: var(--rose); }
+  .sec-head { margin-bottom: clamp(36px, 5vw, 60px); text-align: center; }
+  .swash { width: 120px; height: 16px; color: var(--rose); display: block; margin: 18px auto 0; }
+
+  /* ---------- nav ---------- */
+  .nav {
+    position: absolute; inset: 0 0 auto; z-index: 5;
+    display: flex; justify-content: flex-end; gap: clamp(18px, 3vw, 40px);
+    padding: 28px var(--gutter);
+  }
+  .nav a { color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .nav a:hover { color: var(--link); }
+
+  /* ---------- hero: her headshot on its own soft-white backdrop ---------- */
+  .hero {
+    position: relative; overflow: hidden;
+    min-height: max(640px, var(--screen, 100svh));
+    background: linear-gradient(to bottom, #eeeeed 0%, var(--backdrop) 55%, #e5e3dc 100%);
+    display: grid; align-items: center;
+    padding-top: 96px;   /* the menu's band: the name centres in the space below it, so k and l never touch the links */
+  }
+  .hero-img {
+    position: absolute; left: 0; top: 0;
+    width: min(56%, 980px); height: 100%;
+    object-fit: cover; object-position: 50% 22%;
+    -webkit-mask-image: linear-gradient(to right, #000 52%, transparent 94%), linear-gradient(to top, transparent 0, transparent clamp(40px, 7vw, 96px), #000 calc(clamp(40px, 7vw, 96px) + 18%));
+    -webkit-mask-composite: source-in;
+            mask-image: linear-gradient(to right, #000 52%, transparent 94%), linear-gradient(to top, transparent 0, transparent clamp(40px, 7vw, 96px), #000 calc(clamp(40px, 7vw, 96px) + 18%));
+            mask-composite: intersect;
+  }
+  .hero-copy { position: relative; z-index: 3; width: fit-content; margin-left: 52%; padding-right: var(--gutter); padding-bottom: 64px; }
+  .hero-name {
+    color: var(--name); line-height: 0.95;
+    font-family: var(--name-font), cursive; font-weight: 400; font-style: normal;
+    font-size: calc(clamp(4.6rem, 9.6vw, 10rem) * var(--name-scale));
+  }
+  /* Script glyphs overhang their line box (B's top loop, k's ascender) and the writing mask cuts everything outside the
+     box, so each word gets padding on every side, taken back with negative margins so the layout doesn't move. */
+  .hero-name span { display: block; padding: 0.4em 0.35em 0.45em 0.2em; margin: -0.4em 0 -0.45em; }
+  .hero-name span + span { padding-left: 1.3em; }
+  /* Brooklyn drops towards Hislop; the transform carries its padded mask box with it, so the y's tail is never clipped */
+  .hero-name span:first-child { transform: translateY(0.14em); }
+
+  /* the laurels: real honours, drawn leaf by leaf */
+  .laurels { display: flex; gap: clamp(10px, 1.6vw, 22px); margin: clamp(14px, 2vw, 26px) 0 0 0.4em; }
+  [data-laurels="one"] .laurel.extra, [data-laurels="none"] .laurels { display: none; }
+  .laurel { position: relative; width: clamp(230px, 20vw, 290px); aspect-ratio: 280 / 180; color: var(--gold); }
+  .laurel svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .laurel .stem { fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }
+  .laurel .leaf { fill: currentColor; transform-box: fill-box; transform-origin: 0% 50%; }
+  .laurel-text { position: absolute; inset: 22% 22% 18%; display: grid; place-content: center; text-align: center; line-height: 1.15; }
+  .laurel-text small { font: 500 0.62rem/1.3 var(--text); letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); }
+  .laurel-text em { font: italic 600 clamp(1.05rem, 1.25vw, 1.25rem)/1.05 var(--display); color: var(--name); margin: 4px 0 5px; }
+
+  /* lights: the hero opens dark, a warm spot finds her face, then the house lights come up */
+  .stage {
+    position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
+    background: radial-gradient(circle var(--spot) at var(--fx, 28%) var(--fy, 36%),
+      rgba(255, 236, 214, .10) 0%, rgba(30, 18, 18, 0) 52%, rgba(30, 18, 18, .94) 100%);
+  }
+  [data-lights="off"] .stage { display: none; }
+
+  .hero-edge { position: absolute; left: 0; right: 0; bottom: -1px; z-index: 1;   /* under the page seeds (z 1, later in the page), so they drift over the curve; the headshot fades out above it */
+    width: 100%; height: clamp(40px, 7vw, 96px); }
+  .hero-edge .fill { fill: var(--ivory); }
+  .hero-edge .line { fill: none; stroke: var(--rose); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .go .hero-img { animation: fade 1.6s ease both; }
+    .go .stage { animation: lights 3.4s cubic-bezier(.5,0,.3,1) both; }
+    /* the name writes itself: a soft wipe runs left to right across each word, like a pen */
+    .go .hero-name span {
+      -webkit-mask-image: linear-gradient(90deg, #000 45%, transparent 55%);
+              mask-image: linear-gradient(90deg, #000 45%, transparent 55%);
+      -webkit-mask-size: 230% 100%; mask-size: 230% 100%;
+      -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+      animation: write 1.5s cubic-bezier(.45,.1,.3,1) both;
+    }
+    .go .hero-name span:nth-child(1) { animation-delay: var(--t-name, 1.5s); }
+    .go .hero-name span:nth-child(2) { animation-delay: calc(var(--t-name, 1.5s) + 1.15s); animation-duration: 1.1s; }
+    .go .laurel .stem { stroke-dasharray: 1; stroke-dashoffset: 1; animation: draw 1.4s calc(var(--t-laurel, 3.6s) + var(--lag, 0s)) cubic-bezier(.45,.1,.3,1) forwards; }
+    .go .laurel .leaf { animation: leaf .5s calc(var(--t-laurel, 3.6s) + var(--lag, 0s) + var(--i) * 70ms) cubic-bezier(.3,1.4,.5,1) both; }
+    .go .laurel-text { animation: rise 1s calc(var(--t-laurel, 3.6s) + var(--lag, 0s) + .9s) ease both; }
+    .go .nav { animation: fade 1.4s calc(var(--t-laurel, 3.6s) + .4s) ease both; }
+    .laurel.extra { --lag: .5s; }
+  }
+  [data-lights="off"] .hero { --t-name: .4s; --t-laurel: 2.4s; }
+  @keyframes lights {
+    0% { opacity: 1; --spot: 0px; }
+    12% { opacity: 1; --spot: 0px; }
+    48% { opacity: 1; --spot: 340px; }
+    100% { opacity: 0; --spot: 1600px; }
+  }
+  @keyframes write { from { -webkit-mask-position: 100% 0; mask-position: 100% 0; } to { -webkit-mask-position: 0 0; mask-position: 0 0; } }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes leaf { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+
+  /* ---------- interludes: something happening in the gaps between sections ---------- */
+  .interlude { position: relative; z-index: 6; overflow-x: clip; }
+  .interlude > * { display: none; }
+  [data-gap-a="strip"] [data-slot="a"] .il-strip, [data-gap-b="strip"] [data-slot="b"] .il-strip,
+  [data-gap-a="ribbon"] [data-slot="a"] .il-ribbon, [data-gap-b="ribbon"] [data-slot="b"] .il-ribbon,
+  [data-gap-a="medal"] [data-slot="a"] .il-medal, [data-gap-b="medal"] [data-slot="b"] .il-medal,
+  [data-seeds="on"] [data-slot="b"] .seeds, [data-seeds="on"] [data-slot="c"] .seeds { display: block; }
+  [data-slot="a"] { --at: clamp(-4px, .6vw, 10px); --tilt: -2deg; }
+  [data-slot="b"] { --at: clamp(-34px, -2vw, -14px); --tilt: 1.6deg; }
+  [data-slot="c"] { --at: 0px; }
+  /* bands cross the seam on a slight tilt; positioned absolutely so they never shift the page */
+  .il-band { position: absolute; left: -4vw; right: -4vw; top: var(--at); transform: translateY(-50%) rotate(var(--tilt)); }
+  .il-track { display: flex; align-items: center; width: max-content; }
+  @media (prefers-reduced-motion: no-preference) {
+    .il-track { animation: marquee var(--dur, 90s) linear infinite; }
+    [data-slot="b"] .il-track { animation-direction: reverse; }
+    .il-band:hover .il-track, .il-band:focus-within .il-track { animation-play-state: paused; }
+  }
+  @keyframes marquee { to { transform: translateX(-50%); } }
+  [data-gap-a="strip"] #work, [data-gap-a="ribbon"] #work { padding-bottom: clamp(150px, 17vw, 220px); }
+  [data-gap-a="strip"] .reel > .section, [data-gap-a="ribbon"] .reel > .section { padding-top: clamp(130px, 15vw, 200px); }
+  [data-gap-b="strip"] #credits, [data-gap-b="ribbon"] #credits { padding-top: clamp(110px, 12vw, 160px); }
+
+  /* film strip: scenes from her reel; each frame plays the reel from that moment */
+  .il-strip { background: #1d1214; padding: 21px 0; box-shadow: 0 16px 34px rgba(43, 27, 30, .28); }
+  .il-strip::before, .il-strip::after { content: ""; position: absolute; left: 0; right: 0; height: 7px; background: repeating-linear-gradient(90deg, transparent 0 9px, rgba(243, 236, 232, .5) 9px 19px); }
+  .il-strip::before { top: 7px; } .il-strip::after { bottom: 7px; }
+  .il-strip .il-track { gap: 8px; --dur: 70s; }
+  .il-frame { position: relative; flex: none; width: clamp(128px, 12vw, 180px); aspect-ratio: 16 / 9; padding: 0; border: 0; background: #000; cursor: pointer; overflow: hidden; }
+  .il-frame img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.88) saturate(.9); transition: filter .3s, transform .6s; }
+  .il-frame span { position: absolute; inset: 0; display: grid; place-content: center; gap: 2px; color: var(--mist); font: italic 600 1.05rem/1 var(--display); background: rgba(20, 10, 12, .5); opacity: 0; transition: opacity .25s; }
+  .il-frame span svg { width: 22px; height: 22px; margin: 0 auto; }
+  .il-frame:hover img, .il-frame:focus-visible img { filter: none; transform: scale(1.06); }
+  .il-frame:hover span, .il-frame:focus-visible span { opacity: 1; }
+  .il-hint { position: absolute; z-index: 2; margin: 0; top: -15px; right: calc(4vw + var(--gutter)); display: flex; align-items: center; gap: 7px; padding: 5px 15px 5px 12px; border-radius: 999px; background: var(--champagne); color: var(--plum); font: italic 600 1.02rem/1.2 var(--display); box-shadow: 0 4px 14px rgba(43, 27, 30, .25); pointer-events: none; }
+  .il-hint svg { width: 10px; height: 12px; }
+
+  /* ribbon: every title she has worked on, drifting past */
+  .il-ribbon { background: var(--plum); color: var(--champagne); padding: 15px 0; box-shadow: inset 0 6px 0 -5px var(--champagne), inset 0 -6px 0 -5px var(--champagne), 0 16px 34px rgba(43, 27, 30, .24); }
+  .il-ribbon .il-track { --dur: 110s; }
+  .il-ribbon span { font: italic 600 clamp(1.25rem, 2vw, 1.75rem)/1.1 var(--display); white-space: nowrap; padding: 0 clamp(14px, 1.6vw, 24px); }
+  .il-ribbon i { font-style: normal; color: #c9a66b; font-size: .8rem; }
+
+  /* medal: a gold laurel seal on the seam, with the numbers behind her career */
+  .il-medal { position: relative; text-align: center; padding: 0 var(--gutter); }
+  [data-slot="a"] .il-medal { margin: calc(-1 * clamp(70px, 9vw, 120px)) 0 clamp(30px, 4vw, 54px); }
+  [data-slot="b"] .il-medal { margin: calc(-1 * clamp(52px, 6vw, 80px)) 0 clamp(4px, 1vw, 12px); }
+  .seal { position: relative; width: 132px; height: 96px; margin: 0 auto; color: var(--gold); }
+  .seal::before { content: ""; position: absolute; inset: 6px 22px; border-radius: 50%; background: var(--ivory); }
+  .seal svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .seal .stem { fill: none; stroke: currentColor; stroke-width: 1.6; }
+  .seal .leaf { fill: currentColor; }
+  .seal .star { left: 50%; top: 50%; width: 22px; height: 22px; transform: translate(-50%, -54%); fill: currentColor; }
+  .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 15rem)); justify-content: center; gap: 14px clamp(12px, 3vw, 40px); margin: 10px 0 0; padding: 0; list-style: none; }
+  .stats b { display: block; font: italic 600 clamp(2.5rem, 4.2vw, 3.5rem)/1 var(--display); color: var(--gold); font-variant-numeric: lining-nums; }
+  .stats span { font-size: .72rem; letter-spacing: .2em; text-transform: uppercase; color: var(--link); }
+
+  /* dandelion seeds (her award was for The Dandelion Girl) drifting up through the seams */
+  .seeds { position: absolute; left: 0; right: 0; top: var(--at); height: 300px; transform: translateY(-62%); pointer-events: none; overflow: hidden;
+    -webkit-mask-image: linear-gradient(transparent, #000 22%, #000 70%, transparent); mask-image: linear-gradient(transparent, #000 22%, #000 70%, transparent); }
+  .seed { position: absolute; left: var(--x); bottom: var(--y, 30px); width: var(--w, 22px); color: #b48f58; opacity: .7; }
+  @media (prefers-reduced-motion: no-preference) {
+    .seed { bottom: -46px; opacity: 0; animation: drift var(--d) linear var(--dl) infinite; }
+  }
+  @keyframes drift {
+    0% { transform: translate(0, 0) rotate(-12deg); opacity: 0; }
+    12% { opacity: .85; }
+    50% { transform: translate(var(--dx2), -170px) rotate(14deg); }
+    86% { opacity: .85; }
+    100% { transform: translate(var(--dx), -340px) rotate(-8deg); opacity: 0; }
+  }
+
+  /* seeds across the whole page. The layer spans the full document (not the window), so the seeds scroll away with the
+     page. It sits above the section backgrounds and text but under every photo, still and the reel (those get z-index 2). */
+  body { position: relative; }
+  .air { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; display: none; }
+  [data-seeds="page"] .air { display: block; }
+  .air .seed { bottom: auto; top: var(--y); opacity: .5; }
+  @media (prefers-reduced-motion: no-preference) {
+    .air .seed { opacity: 0; animation: float var(--d) linear var(--dl) infinite; }
+  }
+  @keyframes float {
+    0% { transform: translate(0, 0) rotate(-12deg); opacity: 0; }
+    15% { opacity: .6; }
+    50% { transform: translate(var(--dx2), calc(var(--rise) / 2)) rotate(14deg); }
+    80% { opacity: .6; }
+    100% { transform: translate(var(--dx), var(--rise)) rotate(-8deg); opacity: 0; }
+  }
+  .hero-img { z-index: 2; }
+  .features, .gallery { z-index: 2; }   /* both already position: relative; the buttons themselves are all: unset */
+
+  /* ---------- photo collages: grid areas come from the layouts in the script ---------- */
+  [data-photos="scatter"] .gallery, [data-photos="layered"] .gallery {
+    --cols: 12; --u: calc(min(1080px, 100vw - 2 * var(--gutter)) / var(--cols));
+    grid-template-columns: repeat(var(--cols), var(--u)); grid-auto-rows: var(--u); gap: 0;
+  }
+  [data-photos="scatter"] .gallery button, [data-photos="layered"] .gallery button { position: relative; overflow: visible; transition: transform .5s cubic-bezier(.22,.7,.2,1), box-shadow .5s; }
+  [data-photos="scatter"] .gallery img, [data-photos="layered"] .gallery img { height: 100%; aspect-ratio: auto; border-radius: 2px; }
+  [data-photos="scatter"] .gallery button:hover, [data-photos="layered"] .gallery button:hover,
+  [data-photos="scatter"] .gallery button:focus-visible, [data-photos="layered"] .gallery button:focus-visible { z-index: 30; }
+  [data-photos="scatter"] .gallery button:hover img, [data-photos="layered"] .gallery button:hover img { transform: none; }
+  /* scattered prints: ivory mats, soft shadows, each at its own angle; hover straightens it and lifts it to the top */
+  [data-photos="scatter"] .gallery button { padding: clamp(5px, .7vw, 9px); background: var(--ivory); border-radius: 2px; transform: rotate(var(--r, 0deg)); box-shadow: 0 10px 28px rgba(43, 27, 30, .2), 0 1px 3px rgba(43, 27, 30, .15); }
+  [data-photos="scatter"] .gallery button:hover, [data-photos="scatter"] .gallery button:focus-visible { transform: rotate(0) scale(1.06); box-shadow: 0 22px 50px rgba(43, 27, 30, .3); }
+  /* layered: straight, overlapping at the corners, each with a hairline rose frame offset behind it */
+  [data-photos="layered"] .gallery button { box-shadow: 0 12px 34px rgba(43, 27, 30, .2); isolation: isolate; }   /* keeps the offset frame above the section background */
+  [data-photos="layered"] .gallery button::before { content: ""; position: absolute; inset: 0; transform: translate(var(--ox, 12px), var(--oy, 12px)); border: 1px solid var(--rose); z-index: -1; pointer-events: none; }
+  [data-photos="layered"] .gallery button:hover, [data-photos="layered"] .gallery button:focus-visible { transform: translateY(-6px); box-shadow: 0 22px 50px rgba(43, 27, 30, .3); }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-block; padding: 13px 30px;
+    border: 1px solid var(--link); border-radius: 999px;
+    color: var(--link); text-decoration: none; font-size: 0.95rem;
+    transition: background-color .4s ease, color .4s ease;
+  }
+  .btn:hover { background: var(--link); color: var(--ivory); }
+
+  /* ---------- featured: three productions, matched to her posts by caption ---------- */
+  #work .flow {
+    top: -40px; left: 0; width: 100%; height: 260px; opacity: .35;
+    -webkit-mask-image: radial-gradient(ellipse 340px 90px at 50% calc(100% - 50px), transparent 60%, #000 100%);
+            mask-image: radial-gradient(ellipse 340px 90px at 50% calc(100% - 50px), transparent 60%, #000 100%);
+  }
+  #work { padding-bottom: clamp(110px, 14vw, 170px); }
+  .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(20px, 3vw, 40px); max-width: 1000px; margin: 0 auto; position: relative; }
+  .feature { margin: 0; }
+  .feature img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 3px; }
+  .feature h3 { font-size: 1.6rem; margin-top: 18px; }
+  .feature p { margin: 6px 0 0; font-size: 0.95rem; }
+  .feature .kind { color: var(--link); font-style: italic; margin-top: 2px; }
+
+  /* ---------- reel: plum band with curved edges ---------- */
+  .reel { position: relative; overflow: hidden; color: var(--mist);
+    /* top and bottom rows match the neighbours, so a fractional page offset never shows a plum hairline above the curves */
+    background: linear-gradient(var(--ivory) 3px, var(--plum) 3px calc(100% - 3px), var(--blush) calc(100% - 3px)); }
+  .reel .flow { color: var(--champagne); left: 0; bottom: 0; width: 100%; height: 340px; opacity: .2; }
+  .band-edge { position: absolute; left: 0; width: 100%; height: clamp(36px, 6vw, 84px); z-index: 1; }
+  .band-edge.top { top: -2px; }
+  .band-edge.top path { fill: var(--ivory); }
+  .band-edge.bottom { bottom: -1px; transform: scale(-1, -1); }
+  .band-edge.bottom path { fill: var(--blush); }
+  .reel > .section { padding-top: clamp(100px, 13vw, 160px); padding-bottom: clamp(110px, 14vw, 170px); }
+  .reel h2, .reel .swash { color: var(--champagne); }
+  .reel-frame { position: relative; z-index: 2; max-width: min(980px, calc((var(--screen, 100svh) - 140px) * 16 / 9)); margin: 0 auto; padding: 10px; border: 1px solid var(--champagne); outline: 1px solid color-mix(in srgb, var(--champagne) 40%, transparent); outline-offset: 6px; }
+  .reel-video { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+  .reel-video video { width: 100%; height: 100%; display: block; object-fit: contain; }
+  .reel-start { position: absolute; inset: 0; border: 0; padding: 0; background: rgba(20, 10, 12, .22); cursor: pointer; display: grid; place-items: center; color: var(--mist); }
+  .reel-start span.dot { width: 88px; aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; background: var(--champagne); color: var(--plum); box-shadow: 0 0 0 8px color-mix(in srgb, var(--champagne) 25%, transparent); transition: transform .25s; }
+  .reel-start svg { width: 26px; margin-left: 6px; }
+  .reel-start:hover span.dot { transform: scale(1.07); }
+  .reel-start .label { position: absolute; bottom: 18px; left: 0; right: 0; font: italic 600 1.25rem var(--display); letter-spacing: .02em; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+  .reel.played .reel-start { display: none; }
+  /* our own controls: the browser's bar varies by browser and clips in narrow frames */
+  .hud { position: absolute; inset: auto 0 0 0; display: none; align-items: center; gap: 6px; padding: 32px 10px 10px; background: linear-gradient(transparent, rgba(0, 0, 0, .8)); transition: opacity .3s; }
+  .reel.played .hud { display: flex; }
+  .reel.playing.idle .hud { opacity: 0; }
+  .reel.playing.idle .reel-video { cursor: none; }
+  .hud button { flex: none; width: 34px; height: 34px; display: grid; place-items: center; padding: 0; border: 0; background: none; color: var(--mist); cursor: pointer; }
+  .hud button:hover { color: var(--champagne); }
+  .hud svg { width: 16px; height: 16px; }
+  .hud-seek { flex: 1; min-width: 40px; margin: 0; accent-color: var(--champagne); cursor: pointer; }
+  .hud-time { flex: none; font-size: 13px; font-variant-numeric: tabular-nums; color: var(--mist); white-space: nowrap; }
+  .i-pause, .reel.playing .i-play, .i-muted, .muted .i-sound { display: none; }
+  .reel.playing .i-pause, .muted .i-muted { display: block; }
+  .reel-video:fullscreen { width: 100vw; height: 100vh; aspect-ratio: auto; }
+
+  /* ---------- photos: blush section ---------- */
+  .photos { background: var(--blush); }
+  .photos > .section { padding-top: clamp(64px, 8vw, 104px); }
+  .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 20px); position: relative; max-width: 1080px; margin: 0 auto; }
+  .gallery button { all: unset; display: block; cursor: zoom-in; overflow: hidden; border-radius: 3px; }
+  .gallery button:focus-visible { outline: 1px solid var(--link); outline-offset: 4px; }
+  .gallery img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 25%; transition: transform 1.2s cubic-bezier(.22,.7,.2,1); }
+  .gallery button:hover img { transform: scale(1.03); }
+  /* the blush section hands over to the ivory credits on a curve, so the change of colour reads as one gesture */
+  .photos-edge { display: block; width: 100%; height: clamp(36px, 6vw, 84px); margin-top: -1px; background: var(--ivory); }
+  .photos-edge path { fill: var(--blush); }
+  .photos-edge .line { fill: none; stroke: var(--rose); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+
+  .lightbox { border: 0; padding: 0; background: transparent; max-width: 100vw; max-height: 100vh; width: 100vw; height: 100vh; }
+  .lightbox::backdrop { background: rgba(43, 27, 30, 0.95); }
+  .lightbox[open] { display: grid; place-items: center; }
+  .lightbox img { max-width: 92vw; max-height: 88vh; object-fit: contain; }
+  .lightbox-close, .lightbox-step { position: fixed; cursor: pointer; background: none; border: 0; color: var(--mist); font: 2rem/1 var(--display); padding: 12px 16px; }
+  .lightbox-close { top: 16px; right: 16px; }
+  .lightbox-step { top: 50%; transform: translateY(-50%); font-size: 2.6rem; }
+  .lightbox-step.prev { left: 8px; }
+  .lightbox-step.next { right: 8px; }
+
+  /* ---------- credits ---------- */
+  #credits { padding-top: clamp(40px, 6vw, 72px); }
+  .credits { display: grid; grid-template-columns: repeat(var(--cols, 1), minmax(0, 1fr)); column-gap: clamp(32px, 4vw, 64px); }
+  .credit-col { border-bottom: 1px solid var(--rose); }
+  .credit-col > :last-child, .credit-col > .credit-keep:last-child .credit { border-bottom: 0; }
+  .credit-keep { display: flow-root; }
+  .credit-keep h3 { font-size: 1.6rem; padding: 32px 0 10px; border-bottom: 1px solid var(--rose); }
+  .credit-col > .credit-keep:first-child h3 { padding-top: 0; }
+  .credit { display: grid; grid-template-columns: 1fr auto; column-gap: 24px; padding: 11px 0; border-bottom: 1px solid var(--veil); }
+  .credit-title { font-style: italic; }
+  .credit-role { grid-column: 1; font-size: 0.92rem; color: var(--link); }
+  .credit-year { grid-column: 2; grid-row: 1; font-size: 0.9rem; opacity: .75; }
+
+  /* ---------- footer ---------- */
+  .footer { position: relative; overflow: hidden; background: var(--plum); color: var(--mist); }
+  /* the lines keep to their own band above the copy, never behind it */
+  .footer .flow { color: var(--champagne); left: 0; width: 100%; top: 0; height: clamp(90px, 10vw, 140px); opacity: .4; }
+  .footer > .section { padding-top: clamp(130px, 14vw, 190px); }
+  .footer a { color: var(--champagne); }
+  .footer a:hover { color: var(--mist); }
+  .footer .section { padding-bottom: 48px; display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 48px; align-items: start; }
+  .footer h2 { color: var(--champagne); margin-bottom: 24px; white-space: nowrap; }
+  .footer h3 { font-size: 1.4rem; margin-bottom: 12px; color: var(--champagne); }
+  .footer p { margin: 0; }
+  .footer ul { list-style: none; margin: 0; padding: 0; }
+  .footer li + li { margin-top: 6px; }
+  .footer .agency { font-size: clamp(1.1rem, 2vw, 1.45rem); }
+  .colophon { grid-column: 1 / -1; margin-top: 40px; padding-top: 22px; border-top: 1px solid rgba(228,201,177,.35); font-size: 0.85rem; opacity: .75; }
+  .built-by { display: inline-block; margin-left: 1.1em; padding-left: 1.1em; border-left: 1px solid color-mix(in srgb, currentColor 35%, transparent); font-size: 12px; font-weight: 400; letter-spacing: .02em; text-transform: none; opacity: 0.85; }
+  .built-by a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 45%, transparent); }
+  .built-by a:hover { text-decoration-color: currentColor; }
+  @media (max-width: 600px) { .built-by { display: block; margin: 6px 0 0; padding: 0; border: 0; } }
+
+  /* a bed of dandelions along the foot of the page: stems draw up when it comes into view, clocks open, a few seeds lift off */
+  .meadow { position: relative; height: clamp(110px, 11vw, 150px); margin-top: -12px; color: var(--champagne); pointer-events: none; }
+  .meadow svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+  .meadow .stem { fill: none; stroke: currentColor; stroke-width: 1.1; stroke-linecap: round; opacity: .55; }
+  .meadow .leaf { fill: currentColor; fill-opacity: .22; }
+  .meadow .head { transform-box: fill-box; transform-origin: center; }
+  .meadow .puff line { stroke: currentColor; stroke-width: .6; opacity: .75; }
+  .meadow .puff circle { fill: currentColor; }
+  .meadow .bloom { color: #d7ad62; }
+  .meadow .bloom line { stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; }
+  .meadow .plant { transform-box: view-box; }
+  .meadow .seed { color: var(--champagne); opacity: .6; bottom: auto; }
+  @media (prefers-reduced-motion: no-preference) {
+    .meadow .stem { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    .meadow .head, .meadow .leaf { opacity: 0; }
+    .meadow .seed { opacity: 0; }
+    .meadow.grow .stem { animation: draw 1.8s var(--dl) cubic-bezier(.3,.6,.3,1) forwards; }
+    .meadow.grow .leaf { animation: fade 1s var(--dl) ease forwards; }
+    .meadow.grow .head { animation: bloom .9s calc(var(--dl) + 1.3s) cubic-bezier(.3,1.4,.5,1) forwards; }
+    .meadow.grow .plant { animation: sway var(--sw) ease-in-out var(--sd) infinite alternate; }
+    .meadow.grow .seed { animation: float var(--d) linear var(--dl) infinite; }
+  }
+  @keyframes bloom { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+  @keyframes sway { from { transform: rotate(-1.6deg); } to { transform: rotate(1.6deg); } }
+
+  /* ---------- phones & tablets ---------- */
+  @media (max-width: 860px) {
+    .nav { justify-content: center; padding-top: 20px; padding-bottom: 36px; background: linear-gradient(to bottom, rgba(238,238,237,.92) 40%, rgba(238,238,237,0)); }
+    .hero { align-items: end; min-height: var(--screen, 100svh); }
+    .hero-img {
+      width: 100%; height: 72%;
+      object-position: 50% 18%;
+      -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+              mask-image: linear-gradient(to bottom, #000 62%, transparent 100%);
+    }
+    .hero-copy { width: 100%; margin: 0; padding: 0 8px clamp(64px, 16vw, 110px); text-align: center; }
+    .hero-name { font-size: calc(clamp(3rem, 13vw, 6.5rem) * var(--name-scale)); }
+    .hero-name span, .hero-name span + span { padding: 0.4em 0.3em 0.45em; }
+    .laurels { justify-content: center; margin: 8px 0 0; }
+    .laurel { width: min(46vw, 200px); }
+    [data-laurels="one"] .laurel { width: min(60vw, 230px); }
+    .laurel-text small { font-size: 0.55rem; letter-spacing: 0.14em; }
+    .laurel-text em { font-size: 1rem; }
+    /* two laurels side by side on a phone: a wider text box and tighter caps so nothing runs into the leaves */
+    [data-laurels="two"] .laurel-text { inset: 24% 15% 20%; }
+    [data-laurels="two"] .laurel-text small { font-size: 0.5rem; letter-spacing: 0.06em; }
+    [data-laurels="two"] .laurel-text em { font-size: 0.8rem; margin: 2px 0 3px; }
+    .features { grid-template-columns: 1fr; gap: 14px; }
+    .feature { display: grid; grid-template-columns: 112px 1fr; gap: 18px; align-items: center; }
+    .feature img { aspect-ratio: 1; object-position: 50% 30%; }
+    .feature h3 { margin-top: 0; font-size: 1.4rem; }
+    .reel-start span.dot { width: 64px; }
+    .reel-start svg { width: 20px; }
+    .reel-start .label { display: none; }
+    .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    [data-photos="scatter"] .gallery, [data-photos="layered"] .gallery { --cols: 6; }
+    [data-photos="layered"] .gallery button::before { --ox: 8px; --oy: 8px; }
+    .il-frame { width: 112px; }
+    .il-hint { font-size: .9rem; top: -13px; }
+    .stats span { font-size: .64rem; letter-spacing: .14em; }
+    .hero { padding-top: 70px; }
+    .footer .section { grid-template-columns: 1fr; gap: 36px; }
+    .footer h2 { font-size: 10vw; }
+    .colophon { margin-top: 8px; }
+  }
+  @media (max-width: 380px) { .nav { gap: 14px; } .nav a { font-size: 0.88rem; } }
+
+  /* ---------- MOCKUP ONLY: options panel (delete when a version is chosen) ---------- */
+  .mock { position: fixed; left: 16px; bottom: 16px; z-index: 50; background: #fff; color: #222; font: 13px/1.4 system-ui, sans-serif; padding: 12px 14px; border-radius: 10px; box-shadow: 0 6px 24px rgba(0,0,0,.25); display: grid; gap: 6px; }
+  .mock strong { font-size: 12px; }
+  .mock label { display: flex; justify-content: space-between; gap: 10px; align-items: center; }
+  .mock select, .mock button { font: inherit; }
+  .mock[hidden] { display: none; }
+  .mock-toggle { position: fixed; left: 16px; bottom: 16px; z-index: 49; font: 12px system-ui, sans-serif; padding: 6px 10px; border-radius: 8px; border: 0; background: #fff; box-shadow: 0 4px 16px rgba(0,0,0,.25); cursor: pointer; }
+</style>
+<!-- Options panel shows only with ?options in the URL; visitors see the defaults. -->
+<script>
+  // overscroll colour: past the footer it must be the footer's plum, not a grey strip
+  addEventListener('scroll', () => document.documentElement.classList.toggle('at-end', scrollY > document.documentElement.scrollHeight / 2), { passive: true });
+</script>
+<script>
+  // Phones: pin viewport-sized things (the hero) to the first screen height, in px. In-app browsers (Instagram etc.)
+  // resize the whole viewport, svh included, as their toolbar slides away on scroll, and the hero grew mid-scroll.
+  // Only a width change (rotation) re-measures. Desktop keeps plain svh.
+  (() => { if (!matchMedia('(pointer: coarse)').matches) return;
+    const r = document.documentElement; let w = 0;
+    const pin = () => { if (innerWidth === w) return; w = innerWidth; r.style.setProperty('--screen', innerHeight + 'px'); };
+    pin(); addEventListener('resize', pin); })();
+</script>
+<script>if (!/[?&]options\b/.test(location.search)) document.documentElement.classList.add('no-mock');</script>
+<style>.no-mock .mock, .no-mock .mock-toggle { display: none !important; }</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="flow" viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <g fill="none" stroke="currentColor" stroke-width="1">
+      <path d="M-20 220 C 240 110, 430 300, 720 180 S 1200 50, 1460 140" vector-effect="non-scaling-stroke"/>
+      <path d="M-20 250 C 260 150, 450 320, 745 210 S 1220 90, 1460 170" vector-effect="non-scaling-stroke"/>
+      <path d="M-20 282 C 280 195, 470 330, 770 242 S 1240 135, 1460 202" vector-effect="non-scaling-stroke"/>
+    </g>
+  </symbol>
+  <symbol id="swash" viewBox="0 0 120 16">
+    <path d="M2 8 C 22 0, 38 16, 60 8 S 98 0, 118 8" fill="none" stroke="currentColor" stroke-width="1.2"/>
+  </symbol>
+</svg>
+
+<nav class="nav" aria-label="Sections">
+  <a href="#work">Work</a>
+  <a href="#reel">Reel</a>
+  <a href="#photos">Photos</a>
+  <a href="#credits">Credits</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<header class="hero">
+  <img class="hero-img" src="assets/photos/hero.jpg" alt="Headshot of Brooklyn Hislop in a white tank top" width="1280" height="1600" fetchpriority="high">
+  <div class="stage" aria-hidden="true"></div>
+  <div class="hero-copy">
+    <h1 class="hero-name"><span>Brooklyn</span><span>Hislop</span></h1>
+    <div class="laurels">
+      <div class="laurel">
+        <svg viewBox="0 0 280 180" aria-hidden="true"></svg>
+        <p class="laurel-text"><small>Best Actress</small><em>The Dandelion Girl</em><small>Bridge Fest 2024</small></p>
+      </div>
+      <div class="laurel extra">
+        <svg viewBox="0 0 280 180" aria-hidden="true"></svg>
+        <p class="laurel-text"><small>Lead</small><em>The Palace</em><small>Cannes 2025</small></p>
+      </div>
+    </div>
+  </div>
+  <svg class="hero-edge" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path class="fill" d="M0 70 C 300 20, 620 100, 960 55 S 1340 30, 1440 45 V100 H0 Z"/>
+    <path class="line" d="M0 70 C 300 20, 620 100, 960 55 S 1340 30, 1440 45"/>
+  </svg>
+</header>
+
+<main>
+
+  <section class="section" id="work" aria-labelledby="work-title">
+    <svg class="flow" aria-hidden="true"><use href="#flow"/></svg>
+    <div class="sec-head">
+      <h2 id="work-title">Featured work</h2>
+      <svg class="swash" aria-hidden="true"><use href="#swash"/></svg>
+    </div>
+    <div class="features">
+      <article class="feature">
+        <img src="assets/photos/the-palace.jpg" alt="Poster for The Palace, Brooklyn in a misty pine forest" loading="lazy" width="600" height="600" style="object-position: 46% 50%">
+        <div>
+          <h3>The Palace</h3>
+          <p>Dani · Lead</p>
+          <p class="kind">Short film, 2025</p>
+        </div>
+      </article>
+      <article class="feature">
+        <img src="assets/photos/the-dandelion-girl.jpg" alt="Poster for The Dandelion Girl, Brooklyn in a yellow dress" loading="lazy" width="966" height="1200" style="object-position: 50% 30%">
+        <div>
+          <h3>The Dandelion Girl</h3>
+          <p>Julie · Best Actress, Bridge Fest</p>
+          <p class="kind">Short film, 2024</p>
+        </div>
+      </article>
+      <article class="feature">
+        <img src="assets/photos/slant.jpg" alt="Brooklyn as Angie in Slant" loading="lazy" width="900" height="1200" style="object-position: 50% 25%">
+        <div>
+          <h3>Slant</h3>
+          <p>Angie</p>
+          <p class="kind">Film, upcoming</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- MOCKUP: interlude slots (filled by the script; only the picked variant shows) -->
+  <div class="interlude" data-slot="a"></div>
+
+  <section class="reel" id="reel" aria-labelledby="reel-title">
+    <svg class="band-edge top" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1440 V45 C 1340 30, 1300 55, 960 55 S 300 20, 0 70 Z"/></svg>
+    <svg class="band-edge bottom" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0 H1440 V45 C 1340 30, 1300 55, 960 55 S 300 20, 0 70 Z"/></svg>
+    <svg class="flow" aria-hidden="true"><use href="#flow"/></svg>
+    <div class="section">
+      <div class="sec-head">
+        <h2 id="reel-title">Demo reel</h2>
+        <svg class="swash" aria-hidden="true"><use href="#swash"/></svg>
+      </div>
+      <div class="reel-frame">
+        <div class="reel-video">
+          <video id="player" playsinline preload="none" disablepictureinpicture
+                 poster="assets/video/demo-poster.jpg"
+                 src="assets/video/BrooklynHislop_DEMO.mp4"></video>
+          <button class="reel-start" type="button" aria-label="Play demo reel"><span class="dot"><svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z" fill="currentColor"/></svg></span><span class="label">Play the reel · 4:37</span></button>
+          <div class="hud">
+            <button class="hud-play" type="button" aria-label="Play or pause"><svg class="i-play" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5 L14 8 L3 14.5 Z" fill="currentColor"/></svg><svg class="i-pause" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 1.5h3.5v13H3zM9.5 1.5H13v13H9.5z" fill="currentColor"/></svg></button>
+            <input class="hud-seek" type="range" min="0" max="1000" value="0" step="1" aria-label="Seek">
+            <span class="hud-time">0:00 / 4:37</span>
+            <button class="hud-mute" type="button" aria-label="Mute or unmute"><svg class="i-sound" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 5.5h3L8.5 2v12L4 10.5H1z" fill="currentColor"/><path d="M11 5a4 4 0 0 1 0 6M13 3a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg><svg class="i-muted" viewBox="0 0 16 16" aria-hidden="true"><path d="M1 5.5h3L8.5 2v12L4 10.5H1z" fill="currentColor"/><path d="M11 5.5l4 5M15 5.5l-4 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+            <button class="hud-fs" type="button" aria-label="Full screen"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 5.5v-4h4M10.5 1.5h4v4M14.5 10.5v4h-4M5.5 14.5h-4v-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="interlude" data-slot="c"></div>
+
+  <section class="photos" id="photos" aria-labelledby="photos-title">
+    <div class="section">
+      <div class="sec-head">
+        <h2 id="photos-title">Photos</h2>
+        <svg class="swash" aria-hidden="true"><use href="#swash"/></svg>
+      </div>
+      <div class="gallery">
+        <button><img src="assets/photos/hand-to-cheek.jpg" alt="Close portrait, hand resting on her cheek" loading="lazy" width="959" height="1200"></button>
+        <button><img src="assets/photos/rose-tulle.jpg" alt="Full-length in a rose tulle dress" loading="lazy" width="960" height="1200" style="object-position: 50% 20%"></button>
+        <button><img src="assets/photos/green-knit.jpg" alt="Headshot in a green knit top" loading="lazy" width="960" height="1200"></button>
+        <button><img src="assets/photos/bw-choker.jpg" alt="Black and white portrait with a crystal choker" loading="lazy" width="960" height="1200"></button>
+        <button><img src="assets/photos/blue-light.jpg" alt="Portrait in cool blue light" loading="lazy" width="960" height="1200"></button>
+        <button><img src="assets/photos/white-tee.jpg" alt="Headshot in a white tee" loading="lazy" width="960" height="1200"></button>
+        <button><img src="assets/photos/black-cami.jpg" alt="Portrait in a black camisole, chin on her hand" loading="lazy" width="960" height="1200"></button>
+        <button><img src="assets/photos/black-blazer.jpg" alt="Off-shoulder black blazer dress" loading="lazy" width="902" height="1200"></button>
+        <button><img src="assets/photos/natural-light.jpg" alt="Natural-light portrait with loose waves" loading="lazy" width="960" height="1200"></button>
+        <button><img src="assets/photos/red-and-blue.jpg" alt="Portrait lit in red and blue gels" loading="lazy" width="1021" height="1200"></button>
+        <button><img src="assets/photos/black-halter.jpg" alt="Black halter dress and choker" loading="lazy" width="1031" height="1200"></button>
+        <button><img src="assets/photos/bandana.jpg" alt="Seventies styling with a paisley headscarf" loading="lazy" width="960" height="1200"></button>
+      </div>
+    </div>
+    <svg class="photos-edge" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0 H1440 V45 C 1340 30, 1300 55, 960 55 S 300 20, 0 70 Z"/>
+      <path class="line" d="M1440 45 C 1340 30, 1300 55, 960 55 S 300 20, 0 70"/>
+    </svg>
+  </section>
+
+  <div class="interlude" data-slot="b"></div>
+
+  <section class="section" id="credits" aria-labelledby="credits-title">
+    <div class="sec-head">
+      <h2 id="credits-title">Credits</h2>
+      <svg class="swash" aria-hidden="true"><use href="#swash"/></svg>
+    </div>
+    <div class="credits">
+      <div class="credit-keep"><h3>Television</h3><div class="credit"><span class="credit-title">Hollywood Arts</span><span class="credit-role">Olivia</span><span class="credit-year">2026</span></div></div>
+      <div class="credit"><span class="credit-title">Elle</span><span class="credit-role">Mean Girl · 3 episodes</span><span class="credit-year">2026</span></div>
+      <div class="credit"><span class="credit-title">Tracker</span><span class="credit-role">Sage</span><span class="credit-year">2026</span></div>
+      <div class="credit"><span class="credit-title">Private Eyes West Coast</span><span class="credit-role">Juno</span><span class="credit-year">2026</span></div>
+      <div class="credit"><span class="credit-title">Secretary's Secret</span><span class="credit-role">Mia</span><span class="credit-year">2025</span></div>
+      <div class="credit"><span class="credit-title">My Poor Ex-Wife Is a Heiress</span><span class="credit-role">Ilda</span><span class="credit-year">2024</span></div>
+      <div class="credit"><span class="credit-title">#ModelLife</span><span class="credit-role">Alessandra</span><span class="credit-year">2019</span></div>
+      <div class="credit"><span class="credit-title">Descendants 3</span><span class="credit-role">Orphan (uncredited) · TV movie</span><span class="credit-year">2019</span></div>
+      <div class="credit"><span class="credit-title">Legends of Tomorrow</span><span class="credit-role">Kiana</span><span class="credit-year">2018</span></div>
+      <div class="credit"><span class="credit-title">Christmas on Holly Lane</span><span class="credit-role">Young Cat · TV movie</span><span class="credit-year">2018</span></div>
+      <div class="credit"><span class="credit-title">Once Upon a Time</span><span class="credit-role">Rehearsal Dancer</span><span class="credit-year">2017</span></div>
+      <div class="credit-keep"><h3>Film</h3><div class="credit"><span class="credit-title">Slant</span><span class="credit-role">Angie</span><span class="credit-year">Upcoming</span></div></div>
+      <div class="credit"><span class="credit-title">The Marshmallow Experiment</span><span class="credit-role">Nicole</span><span class="credit-year">Upcoming</span></div>
+      <div class="credit"><span class="credit-title">The Laughing Man</span><span class="credit-role">Sylvia Blanca</span><span class="credit-year">Upcoming</span></div>
+      <div class="credit"><span class="credit-title">Amorosa</span><span class="credit-role">Kylie</span><span class="credit-year">2025</span></div>
+      <div class="credit-keep"><h3>Short film</h3><div class="credit"><span class="credit-title">Take It Off</span><span class="credit-role">Janeth</span><span class="credit-year">Upcoming</span></div></div>
+      <div class="credit"><span class="credit-title">Exposure Therapy</span><span class="credit-role">Tracy</span><span class="credit-year">Upcoming</span></div>
+      <div class="credit"><span class="credit-title">Bloodhound</span><span class="credit-role">Poet</span><span class="credit-year">2025</span></div>
+      <div class="credit"><span class="credit-title">The Palace</span><span class="credit-role">Dani</span><span class="credit-year">2025</span></div>
+      <div class="credit"><span class="credit-title">Count from Ten</span><span class="credit-role">Mel</span><span class="credit-year">2025</span></div>
+      <div class="credit"><span class="credit-title">The Dandelion Girl</span><span class="credit-role">Julie</span><span class="credit-year">2024</span></div>
+      <div class="credit"><span class="credit-title">The Harpies</span><span class="credit-role">Aura</span><span class="credit-year">2024</span></div>
+      <div class="credit"><span class="credit-title">The Sorrow</span><span class="credit-role">Ghost #3 (The Broken Lady)</span><span class="credit-year">2023</span></div>
+      <div class="credit"><span class="credit-title">You Are the Blue</span><span class="credit-role">Scylla</span><span class="credit-year">2023</span></div>
+      <div class="credit"><span class="credit-title">Passiflora</span><span class="credit-role">Dancer</span><span class="credit-year">2023</span></div>
+      <div class="credit"><span class="credit-title">Temporis</span><span class="credit-role">Eve</span><span class="credit-year">2022</span></div>
+      <div class="credit"><span class="credit-title">Dig, Dig, Dig… The Digger's Dance</span><span class="credit-role">Dancer Guard</span><span class="credit-year">2022</span></div>
+      <div class="credit"><span class="credit-title">Run N Gun 2022: Intro Video</span><span class="credit-role">Dancer</span><span class="credit-year">2022</span></div>
+    </div>
+  </section>
+
+</main>
+
+<div class="air" aria-hidden="true"></div>
+
+<footer class="footer" id="contact">
+  <svg class="flow" aria-hidden="true"><use href="#flow"/></svg>
+  <div class="section">
+    <div>
+      <h2>Casting &amp; bookings</h2>
+      <p class="agency">Represented by <a href="https://www.instagram.com/triskotalent/" rel="noopener">Trisko Talent</a></p>
+    </div>
+    <div>
+      <h3>Brooklyn directly</h3>
+      <p><a href="https://ig.me/m/brooklynhislopp" rel="noopener">Message on Instagram</a></p>
+    </div>
+    <div>
+      <h3>Profiles</h3>
+      <ul>
+        <li><a href="https://www.imdb.com/name/nm9380704/" rel="noopener">IMDb</a></li>
+        <li><a href="https://www.instagram.com/brooklynhislopp/" rel="noopener">Instagram</a></li>
+      </ul>
+    </div>
+    <p class="colophon">© 2026 Brooklyn Hislop<span class="built-by">Built by Harrison Keen, <a href="https://harrisonkeen.tech" rel="noopener">harrisonkeen.tech</a></span></p>
+  </div>
+  <div class="meadow" aria-hidden="true"></div>
+</footer>
+
+<dialog class="lightbox" aria-label="Photo viewer">
+  <img alt="">
+  <button class="lightbox-step prev" aria-label="Previous photo">‹</button>
+  <button class="lightbox-step next" aria-label="Next photo">›</button>
+  <button class="lightbox-close" aria-label="Close">×</button>
+</dialog>
+
+<!-- MOCKUP ONLY: options panel -->
+<button class="mock-toggle" hidden>Options</button>
+<aside class="mock" aria-label="Mockup options">
+  <strong>Mockup options</strong>
+  <label>Work → Reel <select data-opt="gapA">
+    <option value="none">A: As is</option>
+    <option value="strip">B: Film strip of reel scenes (picked)</option>
+    <option value="ribbon">C: Ribbon of her titles</option>
+    <option value="medal">D: Gold seal + numbers</option>
+  </select></label>
+  <label>Photos → Credits <select data-opt="gapB">
+    <option value="none">A: As is</option>
+    <option value="ribbon">B: Ribbon of her titles</option>
+    <option value="medal">C: Gold seal + numbers (picked)</option>
+    <option value="strip">D: Film strip of reel scenes</option>
+  </select></label>
+  <label>Dandelion seeds <select data-opt="seeds">
+    <option value="off">Off</option>
+    <option value="on">Reel→Photos + Photos→Credits</option>
+    <option value="page">Whole page, hero included (picked)</option>
+  </select></label>
+  <label>Photos <select data-opt="photos">
+    <option value="grid">A: Grid</option>
+    <option value="scatter">B: Collage, scattered prints (picked)</option>
+    <option value="layered">C: Collage, layered</option>
+  </select></label>
+  <button type="button" class="mock-replay">Replay hero</button>
+  <button type="button" class="mock-hide" style="justify-self:end">Hide</button>
+</aside>
+
+<script>
+  // Laurels: two mirrored branches of leaves along an arc, each leaf numbered so they grow in from the base upwards
+  const NS = 'http://www.w3.org/2000/svg';
+  // position lives on a wrapper <g>: a CSS transform (the grow animation) on the leaf itself would replace its transform attribute
+  const place = (node, x, y, deg) => { const w = document.createElementNS(NS, 'g'); w.setAttribute('transform', `translate(${x} ${y}) rotate(${deg})`); w.append(node); return w; };
+  function branch() {
+    const g = document.createElementNS(NS, 'g');
+    const cx = 140, cy = 92, R = 76, a0 = 104, a1 = 226, n = 8;
+    const pt = (a, r) => [cx + r * Math.cos(a * Math.PI / 180), cy + r * Math.sin(a * Math.PI / 180)];
+    const [sx, sy] = pt(a0, R), [ex, ey] = pt(a1, R);
+    const stem = document.createElementNS(NS, 'path');
+    stem.setAttribute('class', 'stem'); stem.setAttribute('pathLength', '1');
+    stem.setAttribute('d', `M${sx} ${sy} A ${R} ${R} 0 0 1 ${ex} ${ey}`);
+    g.append(stem);
+    for (let k = 0; k < n; k++) {
+      const a = a0 + (a1 - a0) * (k + 0.5) / n, tangent = a + 90;     // direction the branch grows
+      const size = 1 - k / n * 0.38;                                  // leaves get smaller towards the tip
+      [[R + 1, -34], [R - 1, 34]].forEach(([r, tilt], side) => {
+        const [x, y] = pt(a, r);
+        const leaf = document.createElementNS(NS, 'path');
+        const L = 17 * size, W = 5.4 * size;
+        leaf.setAttribute('class', 'leaf');
+        leaf.setAttribute('d', `M0 0 C ${L * .3} ${-W}, ${L * .75} ${-W}, ${L} 0 C ${L * .75} ${W}, ${L * .3} ${W}, 0 0 Z`);
+        leaf.style.setProperty('--i', k * 2 + side);
+        g.append(place(leaf, x, y, tangent + tilt));
+      });
+    }
+    // a crowning leaf at the tip
+    const [tx, ty] = pt(a1, R);
+    const tip = document.createElementNS(NS, 'path');
+    tip.setAttribute('class', 'leaf');
+    tip.setAttribute('d', 'M0 0 C 4 -3.6, 9 -3.6, 12 0 C 9 3.6, 4 3.6, 0 0 Z');
+    tip.style.setProperty('--i', n * 2);
+    g.append(place(tip, tx, ty, a1 + 90));
+    return g;
+  }
+  document.querySelectorAll('.laurel svg').forEach(svg => {
+    const left = branch(), right = branch();
+    right.setAttribute('transform', 'translate(280 0) scale(-1 1)');
+    svg.append(left, right);
+  });
+
+  // Lights: aim the spotlight at her face (at 43% / 40% of the original photo) wherever object-fit puts it
+  const hero = document.querySelector('.hero'), heroImg = hero.querySelector('.hero-img');
+  function aimSpot() {
+    const r = heroImg.getBoundingClientRect(), h = hero.getBoundingClientRect();
+    const s = Math.max(r.width / 1280, r.height / 1600), w = 1280 * s, ht = 1600 * s;
+    const [px, py] = getComputedStyle(heroImg).objectPosition.split(' ').map(v => parseFloat(v) / 100);
+    hero.style.setProperty('--fx', (r.left - h.left + (r.width - w) * px + w * 0.43) + 'px');
+    hero.style.setProperty('--fy', (r.top - h.top + (r.height - ht) * py + ht * 0.40) + 'px');
+  }
+  aimSpot();
+  let lastW = innerWidth;
+  addEventListener('resize', () => { if (innerWidth !== lastW) { lastW = innerWidth; aimSpot(); } });
+  const playHero = () => { document.body.classList.remove('go'); void document.body.offsetWidth; document.body.classList.add('go'); };
+  playHero();
+
+  // Reel: poster and play button first; our own controls appear once it starts
+  const player = document.getElementById('player');
+  const reel = document.getElementById('reel');
+  const vbox = reel.querySelector('.reel-video');
+  const start = () => { reel.classList.add('played'); player.play().catch(() => {}); };
+  const togglePlay = () => player.paused ? start() : player.pause();
+  const seek = reel.querySelector('.hud-seek'), clock = reel.querySelector('.hud-time');
+  const mmss = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+  player.addEventListener('timeupdate', () => {
+    const d = player.duration || 277;
+    seek.value = 1000 * player.currentTime / d;
+    clock.textContent = `${mmss(player.currentTime)} / ${mmss(d)}`;
+  });
+  seek.addEventListener('input', () => { player.currentTime = seek.value / 1000 * (player.duration || 277); });
+  reel.querySelector('.hud-play').addEventListener('click', togglePlay);
+  player.addEventListener('click', togglePlay);
+  reel.querySelector('.hud-mute').addEventListener('click', () => { player.muted = !player.muted; vbox.classList.toggle('muted', player.muted); });
+  reel.querySelector('.hud-fs').addEventListener('click', () => document.fullscreenElement ? document.exitFullscreen() : vbox.requestFullscreen());
+  let idle;
+  const wake = () => { reel.classList.remove('idle'); clearTimeout(idle); idle = setTimeout(() => reel.classList.add('idle'), 2500); };
+  ['mousemove', 'touchstart', 'keydown'].forEach(e => vbox.addEventListener(e, wake, { passive: true }));
+  player.addEventListener('play', wake);
+  reel.querySelector('.reel-start').addEventListener('click', start);
+  player.addEventListener('playing', () => reel.classList.add('playing'));
+  ['pause', 'ended', 'emptied'].forEach(e => player.addEventListener(e, () => reel.classList.remove('playing')));
+  new IntersectionObserver(([e]) => { if (!e.isIntersecting && !player.paused) player.pause(); }).observe(player);
+
+  // Gallery lightbox
+  const shots = [...document.querySelectorAll('.gallery img')];
+  const box = document.querySelector('.lightbox');
+  const big = box.querySelector('img');
+  let at = 0;
+  const show = i => { at = (i + shots.length) % shots.length; big.src = shots[at].src; big.alt = shots[at].alt; };
+  shots.forEach((img, i) => img.parentElement.addEventListener('click', () => { show(i); box.showModal(); }));
+  box.querySelector('.prev').addEventListener('click', () => show(at - 1));
+  box.querySelector('.next').addEventListener('click', () => show(at + 1));
+  box.querySelector('.lightbox-close').addEventListener('click', () => box.close());
+  box.addEventListener('click', e => { if (e.target === box) box.close(); });
+  box.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') show(at - 1);
+    if (e.key === 'ArrowRight') show(at + 1);
+  });
+
+  // Credits: split into columns of near-equal height so every column ends on the same line;
+  // a column may break mid-category, but breaking between categories is cheaper.
+  const credits = document.querySelector('.credits');
+  const groups = [];
+  [...credits.children].forEach(row => {
+    if (row.classList.contains('credit-keep')) groups.push({ title: row.querySelector('h3').textContent, items: [] });
+    groups.at(-1).items.push(row.classList.contains('credit') ? row : row.querySelector('.credit'));
+  });
+  const el = (tag, className, ...kids) => { const e = document.createElement(tag); e.className = className; e.append(...kids); return e; };
+  function layoutCredits() {
+    const n = innerWidth > 1100 ? 3 : innerWidth > 860 ? 2 : 1;
+    const rows = groups.flatMap(g => [el('div', 'credit-keep', el('h3', '', g.title), g.items[0]), ...g.items.slice(1)]);
+    credits.style.setProperty('--cols', n);
+    const cols = Array.from({ length: n }, () => el('div', 'credit-col'));
+    cols[0].append(...rows);
+    credits.replaceChildren(...cols);
+    if (n === 1) return;
+    const h = rows.map(r => r.offsetHeight);
+    const sum = (a, b) => h.slice(a, b).reduce((x, y) => x + y, 0);
+    const penalty = i => rows[i].classList.contains('credit-keep') ? 0 : 40;
+    let best = null;
+    const cuts = n === 2 ? rows.map((_, i) => [i]).slice(1) :
+      rows.flatMap((_, i) => rows.map((_, j) => [i, j])).filter(([i, j]) => i > 0 && j > i);
+    for (const c of cuts) {
+      const edges = [0, ...c, rows.length];
+      const tallest = Math.max(...edges.slice(1).map((e, k) => sum(edges[k], e)));
+      const score = tallest + c.reduce((t, i) => t + penalty(i), 0);
+      if (!best || score < best.score) best = { score, c };
+    }
+    const edges = [0, ...best.c, rows.length];
+    cols.forEach((col, k) => col.replaceChildren(...rows.slice(edges[k], edges[k + 1])));
+  }
+  layoutCredits();
+  let lastCols;
+  addEventListener('resize', () => {
+    const n = innerWidth > 1100 ? 3 : innerWidth > 860 ? 2 : 1;
+    if (n !== lastCols) { lastCols = n; layoutCredits(); }
+  });
+  document.fonts.ready.then(layoutCredits);
+
+  const root = document.documentElement;
+  // MOCKUP: interludes. Each slot gets every variant; the html data-gap-* attribute picks which one shows.
+  const STILLS = [32, 42, 87, 97, 122, 127, 177, 187, 207, 227, 237, 267];
+  const PLAY = '<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M0 0 L10 6 L0 12 Z" fill="currentColor"/></svg>';
+  const titles = [...new Set([...document.querySelectorAll('.credit-title')].map(t => t.textContent))];
+  const groupCount = name => groups.find(g => g.title === name).items.length;
+  const html = (s) => { const t = document.createElement('template'); t.innerHTML = s.trim(); return t.content.firstChild; };
+  document.querySelectorAll('.interlude').forEach(slot => {
+    const frames = STILLS.map(t => `<button class="il-frame" type="button" data-t="${t}" aria-label="Play the reel from ${mmss(t)}"><img src="assets/reel-stills/s${t}.jpg" alt="" loading="lazy" width="360" height="202"><span>${PLAY}${mmss(t)}</span></button>`).join('');
+    const strip = html(`<div class="il-band il-strip"><p class="il-hint">${PLAY} Tap a scene to play it</p><div class="il-track">${frames}${frames.replaceAll('<button', '<button tabindex="-1" aria-hidden="true"')}</div></div>`);
+    const words = titles.map(t => `<span>${t}</span><i>✦</i>`).join('');
+    const ribbon = html(`<div class="il-band il-ribbon" aria-hidden="true"><div class="il-track">${words}${words}</div></div>`);
+    const medal = html(`<div class="il-medal"><div class="seal" aria-hidden="true"><svg viewBox="0 0 280 180"></svg><svg class="star" viewBox="0 0 24 24"><path d="M12 1.5l2.6 7.2 7.6.2-6 4.7 2.2 7.3L12 16.6l-6.4 4.3 2.2-7.3-6-4.7 7.6-.2z"/></svg></div>
+      <ul class="stats"><li><b data-n="${titles.length}">${titles.length}</b><span>Screen credits</span></li><li><b data-n="${groupCount('Television')}">${groupCount('Television')}</b><span>Television</span></li><li><b data-n="${groupCount('Short film')}">${groupCount('Short film')}</b><span>Short films</span></li></ul></div>`);
+    const l = branch(), r = branch(); r.setAttribute('transform', 'translate(280 0) scale(-1 1)');
+    medal.querySelector('.seal svg').append(l, r);
+    const seeds = html('<div class="seeds" aria-hidden="true"></div>');
+    const rnd = (a, b) => a + Math.random() * (b - a);
+    for (let k = 0; k < 9; k++) {
+      const s = html('<svg class="seed" viewBox="0 0 24 40"><g fill="none" stroke="currentColor" stroke-width=".8" stroke-linecap="round"><path d="M12 39 V14"/><path d="M12 14 L3 6 M12 14 L5 3 M12 14 L8.5 1 M12 14 L12 .5 M12 14 L15.5 1 M12 14 L19 3 M12 14 L21 6 M12 14 L2 10 M12 14 L22 10"/></g><ellipse cx="12" cy="37" rx="1.4" ry="3" fill="currentColor"/></svg>');
+      Object.entries({ '--x': rnd(4, 94) + '%', '--y': rnd(20, 200) + 'px', '--w': rnd(16, 28) + 'px', '--d': rnd(14, 24) + 's', '--dl': -rnd(0, 24) + 's', '--dx': rnd(-60, 140) + 'px', '--dx2': rnd(-50, 60) + 'px' })
+        .forEach(([k, v]) => s.style.setProperty(k, v));
+      seeds.append(s);
+    }
+    slot.append(strip, ribbon, medal, seeds);
+  });
+  // whole-page seeds, spread down the full page at about 16 per screenful (9 on phones). Each rises part of the way and
+  // fades, so it never reads as a conveyor.
+  const air = document.querySelector('.air');
+  const SEED = '<svg class="seed" viewBox="0 0 24 40"><g fill="none" stroke="currentColor" stroke-width=".8" stroke-linecap="round"><path d="M12 39 V14"/><path d="M12 14 L3 6 M12 14 L5 3 M12 14 L8.5 1 M12 14 L12 .5 M12 14 L15.5 1 M12 14 L19 3 M12 14 L21 6 M12 14 L2 10 M12 14 L22 10"/></g><ellipse cx="12" cy="37" rx="1.4" ry="3" fill="currentColor"/></svg>';
+  const rr = (a, b) => a + Math.random() * (b - a);
+  for (let k = 0, n = Math.round(document.documentElement.scrollHeight / innerHeight * (innerWidth <= 860 ? 9 : 16)); k < n; k++) {
+    const s = html(SEED);
+    Object.entries({ '--x': rr(2, 96) + '%', '--y': rr(0, 100) + '%', '--w': rr(14, 26) + 'px', '--d': rr(20, 34) + 's', '--dl': -rr(0, 34) + 's',
+      '--rise': -rr(.4, .75) * innerHeight + 'px', '--dx': rr(-80, 160) + 'px', '--dx2': rr(-60, 70) + 'px' }).forEach(([k, v]) => s.style.setProperty(k, v));
+    air.append(s);
+  }
+
+  // the dandelion bed in the footer, drawn to the footer's width so nothing stretches
+  const meadow = document.querySelector('.meadow');
+  const mel = (tag, attrs, parent) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent && parent.append(e); return e; };
+  let meadowW = 0;
+  function drawMeadow() {
+    const W = meadow.clientWidth, H = meadow.clientHeight;
+    if (Math.abs(W - meadowW) < 40) return;
+    meadowW = W;
+    meadow.replaceChildren();
+    const svg = mel('svg', { viewBox: `0 0 ${W} ${H}`, preserveAspectRatio: 'none' }, meadow);
+    const n = Math.round(W / (W <= 860 ? 30 : 36)), tops = [];
+    for (let i = 0; i < n; i++) {
+      const x = (i + rr(.15, .85)) / n * W, h = rr(.35, .92) * H, lean = rr(-16, 16), tx = x + lean, ty = H - h + 4;
+      const g = mel('g', { class: 'plant' }, svg);
+      g.style.cssText = `transform-origin: ${x}px ${H}px; --sw: ${rr(4, 8)}s; --sd: ${-rr(0, 8)}s; --dl: ${(x / W * 1.4 + rr(0, .5)).toFixed(2)}s`;
+      for (const dir of [-1, 1]) if (Math.random() < .7) {   // a low blade of leaf either side of the stem
+        const L = rr(14, 30);
+        mel('path', { class: 'leaf', d: `M${x} ${H} Q${x + dir * L * .45} ${H - L * .75} ${x + dir * L} ${H - L * .3} Q${x + dir * L * .5} ${H - L * .12} ${x} ${H}Z` }, g);
+      }
+      mel('path', { class: 'stem', pathLength: 1, d: `M${x} ${H + 2} Q${x + lean * .15} ${H - h * .55} ${tx} ${ty}` }, g);
+      const at = mel('g', { transform: `translate(${tx} ${ty})` }, g), kind = Math.random();
+      if (kind < .72) {   // a seed clock
+        const head = mel('g', { class: 'head puff' }, at), r = rr(8, 13), k = Math.round(rr(14, 20));
+        for (let j = 0; j < k; j++) {
+          const a = (j / k) * Math.PI * 2 + rr(-.12, .12), rx = Math.cos(a) * r, ry = Math.sin(a) * r;
+          mel('line', { x1: 0, y1: 0, x2: rx.toFixed(1), y2: ry.toFixed(1) }, head);
+          mel('circle', { cx: rx.toFixed(1), cy: ry.toFixed(1), r: .9 }, head);
+        }
+        mel('circle', { r: 1.8 }, head);
+        tops.push([tx, ty]);
+      } else if (kind < .86) {   // a golden flower still in bloom
+        const head = mel('g', { class: 'head bloom' }, at);
+        for (let j = 0; j < 14; j++) { const a = j / 14 * Math.PI * 2; mel('line', { x1: 0, y1: 0, x2: (Math.cos(a) * 5.5).toFixed(1), y2: (Math.sin(a) * 5.5).toFixed(1) }, head); }
+      } else {   // a closed bud
+        mel('ellipse', { class: 'head', rx: 2.6, ry: 4.6, fill: 'currentColor', 'fill-opacity': .7 }, at);
+      }
+    }
+    // a few seeds let go of the clocks and drift up the footer
+    for (let i = 0; i < Math.min(tops.length, W <= 860 ? 4 : 8); i++) {
+      const [tx, ty] = tops[Math.floor(Math.random() * tops.length)], s = html(SEED);
+      Object.entries({ left: tx - 8 + 'px', top: ty - 30 + 'px', '--w': rr(13, 18) + 'px', '--d': rr(11, 18) + 's', '--dl': 3 + rr(0, 12) + 's',
+        '--rise': -rr(160, 300) + 'px', '--dx': rr(-40, 140) + 'px', '--dx2': rr(-30, 50) + 'px' }).forEach(([k, v]) => s.style.setProperty(k, v));
+      s.style.width = 'var(--w)';
+      meadow.append(s);
+    }
+  }
+  drawMeadow();
+  addEventListener('resize', drawMeadow);
+  const sprout = new IntersectionObserver(([e]) => { if (e.isIntersecting) { meadow.classList.add('grow'); sprout.disconnect(); } }, { threshold: .5 });
+  sprout.observe(meadow);
+
+  // a frame in the strip starts the reel from that scene
+  document.querySelectorAll('.il-frame').forEach(b => b.addEventListener('click', () => {
+    reel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    player.preload = 'auto';
+    const go = () => { player.currentTime = +b.dataset.t; start(); };
+    player.readyState >= 1 ? go() : (player.addEventListener('loadedmetadata', go, { once: true }), player.load());
+  }));
+  // the numbers count up the first time they come into view
+  const countUp = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    countUp.unobserve(e.target);
+    const n = +e.target.dataset.n, t0 = performance.now();
+    const tick = now => { const p = Math.min(1, (now - t0) / 1400); e.target.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(tick); };
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) requestAnimationFrame(tick);
+  }), { threshold: 1 });
+  document.querySelectorAll('.stats b').forEach(b => countUp.observe(b));
+
+  // MOCKUP: photo collages. [column, row, width, height, tilt] per photo, in square units of the grid
+  const COLLAGE = {
+    scatter: [[1,1,4,5,-4],[4,2,4,5,3],[7,1,3,4,-2],[9,2,4,5,4],[1,6,3,4,3],[3,7,4,5,-3],[6,6,4,5,2],[9,7,4,5,-5],[1,11,4,5,-2],[4,12,4,5,5],[7,11,3,4,-3],[9,12,4,5,3]],
+    layered: [[1,1,5,6],[5,4,3,4],[8,2,5,6],[2,8,3,4],[4,10,4,5],[9,7,3,4],[10,10,3,4],[1,13,4,5],[7,13,4,5],[10,14,3,4],[3,17,4,5],[8,17,4,5]],
+  };
+  const phone = () => innerWidth <= 860;
+  // on phones: pairs of overlapping photos zig-zagging down a six-column grid
+  const phoneCollage = mode => Array.from({ length: 12 }, (_, i) => {
+    const k = Math.floor(i / 2), right = i % 2;
+    const tilt = mode === 'scatter' ? [-4, 3, 2, -3, -2, 4][k] * (right ? -1 : 1) : 0;
+    return [right ? 3 : 1, k * 6 + (right ? 4 : 1), 4, 5, tilt];
+  });
+  function layoutPhotos() {
+    const mode = root.dataset.photos;
+    document.querySelectorAll('.gallery button').forEach((b, i) => {
+      if (mode === 'grid') { b.style.removeProperty('grid-area'); b.style.removeProperty('--r'); return; }
+      const [c, r, w, h, tilt = 0] = (phone() ? phoneCollage(mode) : COLLAGE[mode])[i];
+      b.style.gridArea = `${r} / ${c} / span ${h} / span ${w}`;
+      b.style.setProperty('--r', tilt + 'deg');
+    });
+  }
+  addEventListener('resize', layoutPhotos);
+
+  // MOCKUP ONLY: options panel
+  const mock = document.querySelector('.mock'), toggle = document.querySelector('.mock-toggle');
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('brooklyn-opts-v4')) || {}; } catch (e) {}
+  document.querySelectorAll('.mock select').forEach(sel => {
+    const pick = new URLSearchParams(location.search).get(sel.dataset.opt) || saved[sel.dataset.opt];   // ?photos=scatter etc. for sharing a pick
+    sel.value = root.dataset[sel.dataset.opt];   // the panel starts on the locked picks
+    if (pick && !root.classList.contains('no-mock')) { sel.value = pick; root.dataset[sel.dataset.opt] = sel.value; }
+    sel.addEventListener('change', () => {
+      root.dataset[sel.dataset.opt] = sel.value;
+      saved[sel.dataset.opt] = sel.value;
+      try { localStorage.setItem('brooklyn-opts-v4', JSON.stringify(saved)); } catch (e) {}
+      if (sel.dataset.opt === 'photos') layoutPhotos();
+    });
+  });
+  layoutPhotos();
+  if (!root.classList.contains('no-mock')) playHero();
+  document.querySelector('.mock-replay').addEventListener('click', () => { scrollTo({ top: 0, behavior: 'instant' }); playHero(); });
+  document.querySelector('.mock-hide').addEventListener('click', () => { mock.hidden = true; toggle.hidden = false; });
+  toggle.addEventListener('click', () => { mock.hidden = false; toggle.hidden = true; });
+</script>
+</body>
+</html>
