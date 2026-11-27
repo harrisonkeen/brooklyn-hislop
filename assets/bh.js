@@ -6,6 +6,19 @@
   const root = document.documentElement;
   root.classList.toggle('rm', reduce);
   const mmss = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+  const largest = img => (img?.getAttribute('srcset') || '').split(',').map(c => c.trim().split(/\s+/)).filter(c => c[0]).sort((a, b) => parseInt(b[1]) - parseInt(a[1]))[0]?.[0];
+
+  /* Client-editable parts (edit.harrisonkeen.tech rewrites the tagged HTML; these keep the extras in step):
+     a fit poster's blurred backdrop is its own picture; the totals count the credits. */
+  $$('.poster.fit > img').forEach(i => i.parentElement.style.setProperty('--bg', `url(${i.getAttribute('src')})`));
+  const rowsIn = g => $$('.b', g).length, groups = $$('.bill-group'), named = n => groups.find(g => $('h3', g)?.textContent.trim().toLowerCase() === n);
+  $$('.totals > div').forEach(d => {
+    const label = $('span', d)?.textContent.trim().toLowerCase(), b = $('b[data-count]', d);
+    const n = label === 'screen credits' ? groups.filter(g => !/music video/i.test($('h3', g)?.textContent || '')).reduce((k, g) => k + rowsIn(g), 0)
+      : label === 'television' ? (named('television') ? rowsIn(named('television')) : null)
+      : label === 'short films' ? (named('short film') ? rowsIn(named('short film')) : null) : null;
+    if (b && n != null) { b.dataset.count = n; b.textContent = n; }
+  });
 
   /* Laurels: two mirrored branches of leaves along an arc; leaves are numbered (--i) so CSS can grow them base → tip.
      Position lives on a wrapper <g>: a CSS transform on the leaf itself would wipe its transform attribute. */
@@ -140,6 +153,9 @@
   if (player) {
     const box = player.closest('.player');
     const seek = $('.hud-seek', box), time = $('.hud-time', box);
+    /* chapters belong to one cut of the reel: a replaced reel drops them */
+    const chs = $('.chapters');
+    if (chs?.dataset.for && chs.dataset.for !== player.getAttribute('src')) { chs.closest('.menu')?.classList.add('solo'); chs.remove(); }
     const chapters = $$('[data-chapter]').sort((a, b) => a.dataset.seek - b.dataset.seek);
     const want = t => {
       box.classList.add('started');
@@ -183,7 +199,7 @@
   if (lb) {
     const shots = $$('[data-gallery] [data-full]'), img = $('img', lb);
     let at = 0;
-    const show = i => { at = (i + shots.length) % shots.length; const s = shots[at]; img.src = s.dataset.full; img.alt = s.querySelector('img')?.alt || ''; };
+    const show = i => { at = (i + shots.length) % shots.length; const s = shots[at]; img.src = largest(s.querySelector('img')) || s.querySelector('img')?.getAttribute('src') || s.dataset.full; img.alt = s.querySelector('img')?.alt || ''; };
     shots.forEach((s, i) => s.addEventListener('click', () => { show(i); lb.showModal(); }));
     $('.lb-prev', lb).addEventListener('click', e => { e.stopPropagation(); show(at - 1); });
     $('.lb-next', lb).addEventListener('click', e => { e.stopPropagation(); show(at + 1); });

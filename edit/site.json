@@ -1,0 +1,262 @@
+{
+  "version": 1,
+  "slots": [
+    {
+      "id": "feat-1",
+      "label": "Now Showing poster 1",
+      "kind": "poster",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": [
+        {
+          "id": "title",
+          "label": "Title",
+          "max": 80
+        },
+        {
+          "id": "as",
+          "label": "Role line (as …)",
+          "max": 60
+        },
+        {
+          "id": "meta",
+          "label": "Network · Year",
+          "max": 80
+        }
+      ]
+    },
+    {
+      "id": "feat-2",
+      "label": "Now Showing poster 2",
+      "kind": "poster",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": [
+        {
+          "id": "title",
+          "label": "Title",
+          "max": 80
+        },
+        {
+          "id": "as",
+          "label": "Role line (as …)",
+          "max": 60
+        },
+        {
+          "id": "meta",
+          "label": "Network · Year",
+          "max": 80
+        }
+      ]
+    },
+    {
+      "id": "feat-3",
+      "label": "Now Showing poster 3",
+      "kind": "poster",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": [
+        {
+          "id": "title",
+          "label": "Title",
+          "max": 80
+        },
+        {
+          "id": "as",
+          "label": "Role line (as …)",
+          "max": 60
+        },
+        {
+          "id": "meta",
+          "label": "Network · Year",
+          "max": 80
+        }
+      ]
+    },
+    {
+      "id": "feat-4",
+      "label": "Now Showing poster 4",
+      "kind": "poster",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": [
+        {
+          "id": "title",
+          "label": "Title",
+          "max": 80
+        },
+        {
+          "id": "as",
+          "label": "Role line (as …)",
+          "max": 60
+        },
+        {
+          "id": "meta",
+          "label": "Network · Year",
+          "max": 80
+        }
+      ]
+    },
+    {
+      "id": "feat-5",
+      "label": "Now Showing poster 5",
+      "kind": "poster",
+      "orientation": "portrait",
+      "variants": [],
+      "captions": [
+        {
+          "id": "title",
+          "label": "Title",
+          "max": 80
+        },
+        {
+          "id": "as",
+          "label": "Role line (as …)",
+          "max": 60
+        },
+        {
+          "id": "meta",
+          "label": "Network · Year",
+          "max": 80
+        }
+      ]
+    },
+    {
+      "id": "reel",
+      "label": "Demo reel",
+      "kind": "video",
+      "orientation": "landscape",
+      "variants": [],
+      "captions": []
+    },
+    {
+      "id": "photo-1",
+      "label": "Photo Call 1",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-2",
+      "label": "Photo Call 2",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-3",
+      "label": "Photo Call 3",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-4",
+      "label": "Photo Call 4",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-5",
+      "label": "Photo Call 5",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-6",
+      "label": "Photo Call 6",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-7",
+      "label": "Photo Call 7",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-8",
+      "label": "Photo Call 8",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-9",
+      "label": "Photo Call 9",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-10",
+      "label": "Photo Call 10",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    },
+    {
+      "id": "photo-11",
+      "label": "Photo Call 11",
+      "kind": "image",
+      "orientation": "portrait",
+      "variants": [
+        800
+      ],
+      "captions": []
+    }
+  ],
+  "credits": {
+    "fields": [
+      {
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "id": "detail",
+        "label": "as Role · notes · Year"
+      }
+    ],
+    "heading": "<h3>{heading}</h3>",
+    "row": "<span class=\"b\">{title}{#detail} <small>{detail}</small>{/detail}</span>",
+    "group": "<div class=\"bill-group\">{heading}<p>{first}{rest}</p></div>",
+    "columns": null,
+    "column": null,
+    "joiner": "\n      ",
+    "rowJoiner": " <i>·</i> "
+  }
+}

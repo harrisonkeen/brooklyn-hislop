@@ -1,0 +1,423 @@
+{
+  "version": 1,
+  "slots": {
+    "feat-1": {
+      "src": "assets/pri/poster-elle-800.webp",
+      "srcset": [],
+      "width": 533,
+      "height": 800,
+      "alt": "Poster for Elle on Prime Video",
+      "poster": null,
+      "captions": {
+        "title": "Elle",
+        "as": "as Mean Girl",
+        "meta": "Prime Video · 2026"
+      },
+      "link": null
+    },
+    "feat-2": {
+      "src": "assets/pri/poster-tracker-800.webp",
+      "srcset": [],
+      "width": 533,
+      "height": 800,
+      "alt": "Poster for Tracker on CBS",
+      "poster": null,
+      "captions": {
+        "title": "Tracker",
+        "as": "as Sage",
+        "meta": "CBS · 2026"
+      },
+      "link": null
+    },
+    "feat-3": {
+      "src": "assets/pri/poster-private-eyes-800.webp",
+      "srcset": [],
+      "width": 533,
+      "height": 800,
+      "alt": "Poster for Private Eyes: West Coast on Global",
+      "poster": null,
+      "captions": {
+        "title": "Private Eyes: West Coast",
+        "as": "as Juno",
+        "meta": "Global · 2026"
+      },
+      "link": null
+    },
+    "feat-4": {
+      "src": "assets/photos/the-palace.jpg",
+      "srcset": [],
+      "width": 600,
+      "height": 600,
+      "alt": "Poster for The Palace, Brooklyn in a misty pine forest",
+      "poster": null,
+      "captions": {
+        "title": "The Palace",
+        "as": "as Dani · Lead",
+        "meta": "Short film · 2025 · Cannes 2025"
+      },
+      "link": null
+    },
+    "feat-5": {
+      "src": "assets/photos/the-dandelion-girl.jpg",
+      "srcset": [],
+      "width": 966,
+      "height": 1200,
+      "alt": "Poster for The Dandelion Girl, Brooklyn in a yellow dress",
+      "poster": null,
+      "captions": {
+        "title": "The Dandelion Girl",
+        "as": "as Julie · Lead",
+        "meta": "Short film · 2024 · Best Actress"
+      },
+      "link": null
+    },
+    "reel": {
+      "src": "assets/video/BrooklynHislop_DEMO.mp4",
+      "srcset": [],
+      "poster": {
+        "src": "assets/video/demo-poster.jpg",
+        "srcset": []
+      },
+      "duration": 277,
+      "captions": {},
+      "link": null
+    },
+    "photo-1": {
+      "src": "assets/pri/hs-white-800.webp",
+      "srcset": [
+        [
+          "assets/pri/hs-white-800.webp",
+          534
+        ],
+        [
+          "assets/pri/hs-white.webp",
+          1067
+        ]
+      ],
+      "width": 1067,
+      "height": 1600,
+      "alt": "Headshot in a white tank top",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-2": {
+      "src": "assets/pri/hs-smile-800.webp",
+      "srcset": [
+        [
+          "assets/pri/hs-smile-800.webp",
+          536
+        ],
+        [
+          "assets/pri/hs-smile.webp",
+          1073
+        ]
+      ],
+      "width": 1073,
+      "height": 1600,
+      "alt": "Smiling headshot in a red tee",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-3": {
+      "src": "assets/pri/beach-dance-800.webp",
+      "srcset": [
+        [
+          "assets/pri/beach-dance-800.webp",
+          800
+        ],
+        [
+          "assets/pri/beach-dance.webp",
+          1600
+        ]
+      ],
+      "width": 1600,
+      "height": 1067,
+      "alt": "Black and white, dancing along the shoreline",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-4": {
+      "src": "assets/pri/hs-red-800.webp",
+      "srcset": [
+        [
+          "assets/pri/hs-red-800.webp",
+          534
+        ],
+        [
+          "assets/pri/hs-red.webp",
+          1067
+        ]
+      ],
+      "width": 1067,
+      "height": 1600,
+      "alt": "Headshot in a red tank top",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-5": {
+      "src": "assets/pri/hs-green-800.webp",
+      "srcset": [
+        [
+          "assets/pri/hs-green-800.webp",
+          534
+        ],
+        [
+          "assets/pri/hs-green.webp",
+          1067
+        ]
+      ],
+      "width": 1067,
+      "height": 1600,
+      "alt": "Headshot in a green knit tee",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-6": {
+      "src": "assets/pri/pe-still-crop-800.webp",
+      "srcset": [
+        [
+          "assets/pri/pe-still-crop-800.webp",
+          800
+        ],
+        [
+          "assets/pri/pe-still-crop.webp",
+          1600
+        ]
+      ],
+      "width": 1600,
+      "height": 894,
+      "alt": "As Juno in Private Eyes: West Coast",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-7": {
+      "src": "assets/pri/black-dress-800.webp",
+      "srcset": [
+        [
+          "assets/pri/black-dress-800.webp",
+          600
+        ],
+        [
+          "assets/pri/black-dress.webp",
+          1200
+        ]
+      ],
+      "width": 1200,
+      "height": 1600,
+      "alt": "Black blazer dress, pearls and gloves",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-8": {
+      "src": "assets/pri/beach-reach-800.webp",
+      "srcset": [
+        [
+          "assets/pri/beach-reach-800.webp",
+          534
+        ],
+        [
+          "assets/pri/beach-reach.webp",
+          1067
+        ]
+      ],
+      "width": 1067,
+      "height": 1600,
+      "alt": "On the beach, arms raised to the sky",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-9": {
+      "src": "assets/photos/bw-choker.jpg",
+      "srcset": [],
+      "width": 960,
+      "height": 1200,
+      "alt": "Black and white portrait with a crystal choker",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-10": {
+      "src": "assets/photos/black-cami.jpg",
+      "srcset": [],
+      "width": 960,
+      "height": 1200,
+      "alt": "Portrait in a black camisole, chin on her hand",
+      "poster": null,
+      "captions": {},
+      "link": null
+    },
+    "photo-11": {
+      "src": "assets/pri/headphones-800.webp",
+      "srcset": [
+        [
+          "assets/pri/headphones-800.webp",
+          458
+        ],
+        [
+          "assets/pri/headphones.webp",
+          916
+        ]
+      ],
+      "width": 916,
+      "height": 1600,
+      "alt": "Moody portrait with headphones and a jade pendant",
+      "poster": null,
+      "captions": {},
+      "link": null
+    }
+  },
+  "credits": [
+    {
+      "heading": "Television",
+      "rows": [
+        {
+          "title": "Hollywood Arts",
+          "detail": "as Olivia · 2026"
+        },
+        {
+          "title": "Elle",
+          "detail": "as Mean Girl · 3 episodes · 2026"
+        },
+        {
+          "title": "Tracker",
+          "detail": "as Sage · 2026"
+        },
+        {
+          "title": "Private Eyes: West Coast",
+          "detail": "as Juno · 2026"
+        },
+        {
+          "title": "Who Is Hypnotizing My Daughter?",
+          "detail": "as Supporting · Lifetime TV movie"
+        },
+        {
+          "title": "Secretary's Secret",
+          "detail": "as Mia · 2025"
+        },
+        {
+          "title": "My Poor Ex-Wife Is a Heiress",
+          "detail": "as Ilda · Lead · 2024"
+        },
+        {
+          "title": "#ModelLife",
+          "detail": "as Alessandra · 2019"
+        },
+        {
+          "title": "Descendants 3",
+          "detail": "as Orphan · TV movie · 2019"
+        },
+        {
+          "title": "DC's Legends of Tomorrow",
+          "detail": "as Kiana · 2018"
+        },
+        {
+          "title": "Christmas on Holly Lane",
+          "detail": "as Young Cat · TV movie · 2018"
+        },
+        {
+          "title": "Once Upon a Time",
+          "detail": "as Rehearsal Dancer · 2017"
+        }
+      ]
+    },
+    {
+      "heading": "Film",
+      "rows": [
+        {
+          "title": "The Young People",
+          "detail": "as Dancer · dir. Osgood Perkins · 2026"
+        },
+        {
+          "title": "Slant",
+          "detail": "as Angie · Upcoming"
+        },
+        {
+          "title": "The Marshmallow Experiment",
+          "detail": "as Nicole · Upcoming"
+        },
+        {
+          "title": "The Laughing Man",
+          "detail": "as Sylvia Blanca · Lead · Upcoming"
+        },
+        {
+          "title": "Amorosa",
+          "detail": "as Kylie · 2025"
+        }
+      ]
+    },
+    {
+      "heading": "Short film",
+      "rows": [
+        {
+          "title": "Take It Off",
+          "detail": "as Janeth · Upcoming"
+        },
+        {
+          "title": "Exposure Therapy",
+          "detail": "as Tracy · Upcoming"
+        },
+        {
+          "title": "Bloodhound",
+          "detail": "as Poet · 2025"
+        },
+        {
+          "title": "The Palace",
+          "detail": "as Dani · Lead · 2025"
+        },
+        {
+          "title": "Count from Ten",
+          "detail": "as Mel · 2025"
+        },
+        {
+          "title": "The Dandelion Girl",
+          "detail": "as Julie · Lead · Best Actress · 2024"
+        },
+        {
+          "title": "The Harpies",
+          "detail": "as Aura · 2024"
+        },
+        {
+          "title": "The Sorrow",
+          "detail": "as Ghost #3 (The Broken Lady) · 2023"
+        },
+        {
+          "title": "You Are the Blue",
+          "detail": "as Scylla · 2023"
+        },
+        {
+          "title": "Passiflora",
+          "detail": "as Dancer · 2023"
+        },
+        {
+          "title": "Temporis",
+          "detail": "as Eve · 2022"
+        },
+        {
+          "title": "Dig, Dig, Dig… The Digger's Dance",
+          "detail": "as Dancer Guard · 2022"
+        },
+        {
+          "title": "Run N Gun 2022: Intro Video",
+          "detail": "as Dancer · 2022"
+        }
+      ]
+    },
+    {
+      "heading": "Music video",
+      "rows": [
+        {
+          "title": "Ain't Christmas Without You · Danielle Ryan",
+          "detail": "as Dancer"
+        }
+      ]
+    }
+  ]
+}
